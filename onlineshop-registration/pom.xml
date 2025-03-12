@@ -12,4 +12,9 @@
     <artifactId>onlineshop-registration</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>onlineshop-registration-api</module>
+        <module>onlineshop-registration-impl</module>
+    </modules>
+
 </project>
