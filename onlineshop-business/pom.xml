@@ -13,6 +13,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ru.home.shop.registration</groupId>
             <artifactId>onlineshop-registration-api</artifactId>
             <version>${project.version}</version>
