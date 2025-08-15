@@ -1,2 +1,4 @@
 server:
   port: 8071
+registration:
+  version: v1

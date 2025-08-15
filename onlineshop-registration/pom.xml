@@ -14,7 +14,8 @@
 
     <modules>
         <module>onlineshop-registration-api</module>
-        <module>onlineshop-registration-impl</module>
+        <module>onlineshop-registration-phone-impl</module>
+        <module>onlineshop-registration-email-impl</module>
     </modules>
 
 </project>

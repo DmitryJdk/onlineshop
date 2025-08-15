@@ -44,7 +44,12 @@
             </dependency>
             <dependency>
                 <groupId>ru.home.shop.registration</groupId>
-                <artifactId>onlineshop-registration-impl</artifactId>
+                <artifactId>onlineshop-registration-phone-impl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.home.shop.registration</groupId>
+                <artifactId>onlineshop-registration-email-impl</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

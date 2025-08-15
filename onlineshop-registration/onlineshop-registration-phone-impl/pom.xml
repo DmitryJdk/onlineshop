@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>ru.home.shop.registration</groupId>
-    <artifactId>onlineshop-registration-impl</artifactId>
+    <artifactId>onlineshop-registration-phone-impl</artifactId>
 
     <dependencies>
         <dependency>
