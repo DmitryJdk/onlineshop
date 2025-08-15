@@ -19,7 +19,11 @@
         <dependency>
             <groupId>ru.home.shop.registration</groupId>
             <artifactId>onlineshop-registration-api</artifactId>
-            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.home.shop.registration</groupId>
+            <artifactId>onlineshop-registration-impl</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
