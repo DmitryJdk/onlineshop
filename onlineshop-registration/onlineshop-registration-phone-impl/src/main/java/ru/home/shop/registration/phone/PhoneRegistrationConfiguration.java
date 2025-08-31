@@ -9,7 +9,7 @@ import ru.home.shop.registration.phone.service.PhoneRegistrationServiceImpl;
 
 @Slf4j
 @Configuration
-@ConditionalOnProperty(prefix = "registration", name = "version", havingValue = "v1")
+@ConditionalOnProperty(prefix = "shop.registration", name = "type", havingValue = "phone")
 public class PhoneRegistrationConfiguration {
 
     @Bean

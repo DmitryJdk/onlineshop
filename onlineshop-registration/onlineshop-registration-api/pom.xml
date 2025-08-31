@@ -13,4 +13,82 @@
     <groupId>ru.home.shop.registration</groupId>
     <artifactId>onlineshop-registration-api</artifactId>
 
+    <properties>
+        <openapi-generator.version>7.15.0</openapi-generator.version>
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <build.helper.version>3.6.1</build.helper.version>
+
+        <openapi.base-package>${project.groupId}/registration/model</openapi.base-package>
+        <openapi.specification.path>${project.basedir}/src/main/resources/api/registration.yaml</openapi.specification.path>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <parameters>true</parameters>
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator.version}</version>
+                <executions>
+                    <execution>
+                        <id>openapi-generator</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <generatorName>spring</generatorName>
+                            <inputSpec>${openapi.specification.path}</inputSpec>
+                            <modelPackage>${project.groupId}.model</modelPackage>
+                            <apiPackage>${project.groupId}.controller</apiPackage>
+                            <generateApis>true</generateApis>
+                            <generateModels>true</generateModels>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <apiNameSuffix>Controller</apiNameSuffix>
+                            <configOptions>
+                                <useTags>true</useTags>
+                                <openApiNullable>false</openApiNullable>
+                                <interfaceOnly>true</interfaceOnly>
+                                <skipDefaultInterface>true</skipDefaultInterface>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <library>spring-boot</library>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build.helper.version}</version>
+                <executions>
+                    <execution>
+                        <id>add-generated-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

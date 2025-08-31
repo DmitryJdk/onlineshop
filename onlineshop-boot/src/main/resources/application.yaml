@@ -1,4 +1,16 @@
+spring:
+  application:
+    name: Онлайн магазин
+  profiles:
+    active: actuator, swagger
+
 server:
   port: 8071
-registration:
-  version: ${service.version}
+  servlet:
+    encoding:
+      charset: UTF-8
+      force-response: true
+
+shop:
+  registration:
+    type: phone

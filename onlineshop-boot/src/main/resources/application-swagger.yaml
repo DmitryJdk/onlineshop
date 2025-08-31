@@ -1,0 +1,17 @@
+springdoc:
+  swagger-ui:
+    path: /sw/swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    disable-swagger-default-url: true
+  api-docs:
+    path: /sw/api-docs
+    resolve-schema-properties: false
+    groups:
+      enabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  show-actuator: true
+  cache:
+    disabled: true
+  show-login-endpoint: true

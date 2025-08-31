@@ -1,4 +1,4 @@
-POST http://localhost:8071/hello
+POST http://localhost:8071/registration
 Content-Type: application/json
 
 {

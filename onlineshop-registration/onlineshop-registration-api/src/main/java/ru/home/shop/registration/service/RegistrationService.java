@@ -1,7 +1,7 @@
 package ru.home.shop.registration.service;
 
-import ru.home.shop.registration.dto.request.RegistrationRequest;
-import ru.home.shop.registration.dto.response.RegistrationResponse;
+import ru.home.shop.registration.model.RegistrationRequest;
+import ru.home.shop.registration.model.RegistrationResponse;
 
 public interface RegistrationService {
 

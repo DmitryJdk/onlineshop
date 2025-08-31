@@ -1,0 +1,122 @@
+openapi: 3.0.4
+info:
+  title: Registration API
+  version: 1.0.0
+  description: API для регистрации пользователей
+
+components:
+  schemas:
+    RegistrationRequest:
+      type: object
+      required:
+        - username
+      properties:
+        username:
+          type: string
+          description: Имя пользователя
+          example: "ivan_ivanov"
+          minLength: 3
+          maxLength: 50
+          pattern: ^[a-zA-Z0-9_]+$
+        email:
+          type: string
+          format: email
+          description: Email пользователя
+          example: "ivan@mail.ru"
+          nullable: true
+        phone:
+          type: string
+          description: Номер телефона
+          example: "+79012345678"
+          nullable: true
+          pattern: ^(8|\+7)(\s|\(|-)?(\d{3})(\s|\)|-)?(\d{3})(\s|-)?(\d{2})(\s|-)?(\d{2})$
+
+    RegistrationResponse:
+      type: object
+      required:
+        - uuid
+        - type
+        - status
+        - timestamps
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: UUID зарегистрированного пользователя
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        type:
+          $ref: '#/components/schemas/RegistrationType'
+        status:
+          $ref: '#/components/schemas/RegistrationStatus'
+
+    RegistrationError:
+      type: object
+      required:
+        - timestamp
+        - status
+        - error
+        - message
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+
+    RegistrationType:
+      type: string
+      description: Тип регистрации
+      enum:
+        - EMAIL
+        - PHONE
+      example: EMAIL
+
+    RegistrationStatus:
+      type: string
+      description: Статус регистрации
+      enum:
+        - CONFIRMED
+        - REJECTED
+      example: CONFIRMED
+
+paths:
+  /api/registration:
+    post:
+      summary: Регистрация нового пользователя
+      description: |
+        Создает нового пользователя в системе.
+        Поддерживает регистрацию по email и телефону.
+      operationId: register
+      tags:
+        - Registration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequest'
+      responses:
+        '200':
+          description: Пользователь успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationResponse'
+        '400':
+          description: Невалидные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationError'
+              examples:
+                validationErrorExample:
+                  summary: Example of validation error
+                  value:
+                    timestamp: 2024-08-30T14:30:00Z
+                    status: 400
+                    error: Bad Request
+                    message: Validation error

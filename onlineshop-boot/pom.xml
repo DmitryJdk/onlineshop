@@ -17,6 +17,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ru.home.shop</groupId>
             <artifactId>onlineshop-business</artifactId>
             <scope>runtime</scope>
@@ -28,6 +36,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.5.5</version>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>ru.home.shop.Main</mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

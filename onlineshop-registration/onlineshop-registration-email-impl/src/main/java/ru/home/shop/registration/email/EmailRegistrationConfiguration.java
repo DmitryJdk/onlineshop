@@ -9,7 +9,7 @@ import ru.home.shop.registration.email.service.EmailRegistrationServiceImpl;
 
 @Slf4j
 @Configuration
-@ConditionalOnProperty(prefix = "registration", name = "version", havingValue = "v2")
+@ConditionalOnProperty(prefix = "shop.registration", name = "type", havingValue = "email")
 public class EmailRegistrationConfiguration {
 
     @Bean
